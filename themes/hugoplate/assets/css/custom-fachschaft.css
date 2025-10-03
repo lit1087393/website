@@ -1,0 +1,562 @@
+/* ============================================
+   Fachschaft Biowissenschaften Custom Styles
+   ============================================ */
+
+/* Farbvariablen */
+:root {
+  --tum-blue: #0065bd;
+  --tum-blue-dark: #004d93;
+  --tum-blue-light: #3484d2;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+/* Dark Mode Variablen */
+.dark {
+  --tum-blue: #3484d2;
+  --tum-blue-dark: #0065bd;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dark .header {
+  background: var(--gray-900);
+  border-bottom-color: var(--gray-700);
+}
+
+/* Logo-Anpassung */
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+/* Navigation Links */
+.nav-link {
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--tum-blue);
+}
+
+.dark .nav-link {
+  color: var(--gray-200);
+}
+
+.dark .nav-link:hover,
+.dark .nav-link.active {
+  color: var(--tum-blue-light);
+}
+
+/* ============================================
+   Buttons & CTAs
+   ============================================ */
+
+.btn-primary {
+  background-color: var(--tum-blue);
+  border-color: var(--tum-blue);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--tum-blue-dark);
+  border-color: var(--tum-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 101, 189, 0.2);
+}
+
+.btn-outline-primary {
+  color: var(--tum-blue);
+  border-color: var(--tum-blue);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--tum-blue);
+  color: white;
+}
+
+/* ============================================
+   Hero Section (Startseite)
+   ============================================ */
+
+.hero-section {
+  padding: 4rem 0 3rem;
+  background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+}
+
+.dark .hero-section {
+  background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.dark .hero-title {
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-700);
+  margin-bottom: 2rem;
+}
+
+.dark .hero-subtitle {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   Zahlen & Fakten Cards
+   ============================================ */
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 101, 189, 0.1);
+}
+
+.dark .stat-card {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--tum-blue);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.dark .stat-number {
+  color: var(--tum-blue-light);
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.dark .stat-label {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   Content Sections
+   ============================================ */
+
+.content-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.dark .section-title {
+  color: white;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-700);
+  margin-bottom: 2rem;
+}
+
+.dark .section-subtitle {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   FAQ Accordion
+   ============================================ */
+
+.faq-item {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.dark .faq-item {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.faq-question {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+  background: var(--gray-50);
+}
+
+.dark .faq-question {
+  color: white;
+}
+
+.dark .faq-question:hover {
+  background: var(--gray-700);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.dark .faq-answer {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   Contact Cards (Ansprechpartner)
+   ============================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.contact-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.dark .contact-card {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.contact-role {
+  color: var(--tum-blue);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.dark .contact-role {
+  color: var(--tum-blue-light);
+}
+
+.contact-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.dark .contact-name {
+  color: white;
+}
+
+.contact-email {
+  color: var(--gray-700);
+  font-size: 0.875rem;
+}
+
+.dark .contact-email {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   Job Board Cards
+   ============================================ */
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.job-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--tum-blue);
+}
+
+.dark .job-card {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.dark .job-title {
+  color: white;
+}
+
+.job-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.dark .job-meta {
+  color: var(--gray-300);
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  padding: 3rem 0 1rem;
+}
+
+.dark .footer {
+  background: var(--gray-900);
+  border-top-color: var(--gray-700);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.footer-link {
+  color: var(--gray-700);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--tum-blue);
+}
+
+.dark .footer-link {
+  color: var(--gray-300);
+}
+
+.dark .footer-link:hover {
+  color: var(--tum-blue-light);
+}
+
+/* ============================================
+   Event/News Cards
+   ============================================ */
+
+.event-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.dark .event-card {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.event-content {
+  padding: 1.5rem;
+}
+
+.event-category {
+  display: inline-block;
+  background: var(--tum-blue);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.dark .event-title {
+  color: white;
+}
+
+.event-author {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+}
+
+.dark .event-author {
+  color: var(--gray-300);
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--tum-blue);
+  box-shadow: 0 0 0 3px rgba(0, 101, 189, 0.1);
+}
+
+.dark .form-input,
+.dark .form-textarea {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+  color: white;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.dark .form-label {
+  color: white;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-tum-blue {
+  color: var(--tum-blue);
+}
+
+.bg-tum-blue {
+  background-color: var(--tum-blue);
+}
+
+.border-tum-blue {
+  border-color: var(--tum-blue);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .contact-grid,
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+}

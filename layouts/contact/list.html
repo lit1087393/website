@@ -1,0 +1,180 @@
+{{ define "main" }}
+  {{ partial "page-header" . }}
+
+  <!-- Kontaktformular -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="section-title text-center mb-12">Kontaktformular</h2>
+          <div class="row">
+            <div class="lg:col-8 mx-auto">
+              <form action="{{ site.Params.contact_form_action }}" method="POST">
+                <div class="mb-6">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Max Mustermann"
+                    type="text"
+                    required />
+                </div>
+                <div class="mb-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="max.mustermann@tum.de"
+                    type="email"
+                    required />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="form-label">Nachricht</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-input"
+                    placeholder="Deine Nachricht..."
+                    rows="6"
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full">
+                  Abschicken
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ansprechpartner -->
+  <section class="section bg-gray-50 dark:bg-darkmode-theme2">
+    <div class="container">
+      <h2 class="section-title text-center mb-12">Ansprechpartner</h2>
+      
+      <!-- Fachschaftssitzung -->
+      <div class="row justify-center mb-16">
+        <div class="lg:col-8">
+          <div class="bg-white dark:bg-darkmode-body rounded-xl p-8">
+            <h3 class="text-2xl font-bold mb-4">Fachschaftssitzung</h3>
+            <p class="mb-4">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
+              eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
+              voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet 
+              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+            <div class="flex items-center gap-4 mt-6">
+              <div class="text-tum-blue">
+                <i class="fa fa-calendar text-2xl"></i>
+              </div>
+              <div>
+                <p class="font-semibold">Jeden 2. Donnerstag</p>
+                <p class="text-gray-600 dark:text-gray-400">17:00 - 18:30 Uhr</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 mt-4">
+              <div class="text-tum-blue">
+                <i class="fa fa-location-dot text-2xl"></i>
+              </div>
+              <div>
+                <p class="font-semibold">Seminarraum 2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ansprechpartner Grid -->
+      <div class="contact-grid">
+        <!-- Ansprechpartner 1 -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-gray-200 dark:bg-darkmode-theme2 rounded-full flex items-center justify-center">
+              <i class="fa fa-user text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <p class="contact-role">Ansprechpartner Website-Komitee</p>
+          <h3 class="contact-name">Niloufar Hosseini</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-2">Fachschaftsvorsitzende</p>
+          <a href="mailto:max.mustermann@tum.de" class="contact-email">
+            <i class="fa fa-envelope mr-2"></i>max.mustermann@tum.de
+          </a>
+        </div>
+
+        <!-- Awareness-Team -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-tum-blue text-white rounded-full flex items-center justify-center">
+              <i class="fa fa-shield-heart text-4xl"></i>
+            </div>
+          </div>
+          <p class="contact-role">Awareness-Team</p>
+          <h3 class="contact-name mb-4">Hier für euch</h3>
+          <a href="mailto:awareness@fachschaft-bio.de" class="btn btn-outline-primary btn-sm">
+            Kontaktieren
+          </a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white rounded-full flex items-center justify-center">
+              <i class="fa-brands fa-instagram text-4xl"></i>
+            </div>
+          </div>
+          <p class="contact-role">Social Media</p>
+          <h3 class="contact-name mb-4">Folgt uns auf Instagram</h3>
+          <a href="https://instagram.com/fachschaft_bio" target="_blank" class="btn btn-outline-primary btn-sm">
+            @fachschaft_bio
+          </a>
+        </div>
+
+        <!-- Erstsemesterbegrüßung -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-green-500 text-white rounded-full flex items-center justify-center">
+              <i class="fa fa-users text-4xl"></i>
+            </div>
+          </div>
+          <p class="contact-role">Erstsemester</p>
+          <h3 class="contact-name mb-4">Erstsemesterbegrüßung</h3>
+          <a href="mailto:erstis@fachschaft-bio.de" class="btn btn-outline-primary btn-sm">
+            Kontaktieren
+          </a>
+        </div>
+
+        <!-- Lernmaterialienpool -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-blue-500 text-white rounded-full flex items-center justify-center">
+              <i class="fa fa-book text-4xl"></i>
+            </div>
+          </div>
+          <p class="contact-role">Lernmaterialien</p>
+          <h3 class="contact-name mb-4">Lernmaterialienpool</h3>
+          <a href="mailto:lernmaterial@fachschaft-bio.de" class="btn btn-outline-primary btn-sm">
+            Kontaktieren
+          </a>
+        </div>
+
+        <!-- Webseite -->
+        <div class="contact-card">
+          <div class="mb-4">
+            <div class="w-24 h-24 mx-auto bg-indigo-500 text-white rounded-full flex items-center justify-center">
+              <i class="fa fa-globe text-4xl"></i>
+            </div>
+          </div>
+          <p class="contact-role">Webseite</p>
+          <h3 class="contact-name mb-4">Website-Komitee</h3>
+          <a href="mailto:web@fachschaft-bio.de" class="btn btn-outline-primary btn-sm">
+            Kontaktieren
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

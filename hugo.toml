@@ -116,9 +116,13 @@ notAlternative = true
 ############################# Plugins ##############################
 
 # CSS Plugins
-[[params.plugins.css]]
-link = "plugins/swiper/swiper-bundle.css"
-lazy = true
+[params.plugins]
+  [[params.plugins.css]]
+    link = "plugins/swiper/swiper-bundle.css"
+    lazy = false
+  [[params.plugins.css]]
+    link = "css/custom-fachschaft.css"
+    lazy = false
 [[params.plugins.css]]
 link = "plugins/glightbox/glightbox.css"
 lazy = true

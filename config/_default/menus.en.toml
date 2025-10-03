@@ -2,48 +2,24 @@
 
 # main menu
 [[main]]
-name = "Home"
+name = "Fachschaft"
 url = "/"
 weight = 1
 
 [[main]]
-name = "About"
+name = "Studium"
 url = "/about"
 weight = 2
 
 [[main]]
-name = "Elements"
-url = "/elements"
+name = "Jobbörse"
+url = "/jobboerse"
 weight = 3
 
 [[main]]
-weight = 4
-name = "Pages"
-
-[[main]]
-parent = "Pages"
-name = "Blog"
-url = "/blog"
-
-[[main]]
-parent = "Pages"
-name = "Contact"
+name = "Kontakt"
 url = "/contact"
-
-[[main]]
-parent = "Pages"
-name = "Authors"
-url = "/authors"
-
-[[main]]
-parent = "Pages"
-name = "Categories"
-url = "/categories"
-
-[[main]]
-parent = "Pages"
-name = "404 Page"
-url = "/404"
+weight = 4
 
 
 # footer menu

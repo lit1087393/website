@@ -1,0 +1,121 @@
+{{ define "main" }}
+  {{ partial "page-header" . }}
+
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <!-- Event/News Posts -->
+        <div class="lg:col-8">
+          <div class="row">
+            {{ $paginator:= .Paginate .RegularPages }}
+            {{ range $paginator.Pages }}
+              <div class="md:col-6 mb-8">
+                <div class="event-card">
+                  {{ $image:= .Params.image }}
+                  {{ if $image }}
+                    <div class="relative h-48 overflow-hidden">
+                      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full h-full object-cover") }}
+                    </div>
+                  {{ end }}
+                  
+                  <div class="event-content">
+                    {{ $categories:= .Params.categories }}
+                    {{ if $categories }}
+                      {{ range $categories }}
+                        <span class="event-category">{{ . }}</span>
+                      {{ end }}
+                    {{ end }}
+                    
+                    <h3 class="event-title">
+                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    
+                    <div class="event-author">
+                      <i class="fa-regular fa-circle-user mr-2"></i>
+                      {{ .Params.author }} · 
+                      <i class="fa-regular fa-clock ml-2 mr-2"></i>
+                      {{ time.Format "02.01.2006" .PublishDate }}
+                    </div>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                      {{ .Summary | plainify }}
+                    </p>
+                    
+                    <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">
+                      Mehr lesen
+                      <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+          {{ partial "components/pagination.html" . }}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-4">
+          <!-- Kategorien Widget -->
+          {{ if isset site.Taxonomies "categories" }}
+            {{ if not (eq (len site.Taxonomies.categories) 0) }}
+              <div class="mb-8">
+                <h5 class="text-xl font-bold mb-4">Kategorien</h5>
+                <div class="bg-light dark:bg-darkmode-light rounded-lg p-6">
+                  <ul class="space-y-3">
+                    {{ range $name, $items := site.Taxonomies.categories }}
+                      <li>
+                        <a
+                          class="flex justify-between items-center hover:text-tum-blue transition-colors {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}text-tum-blue font-semibold{{ end }}"
+                          href="{{ .Page.RelPermalink }}">
+                          <span>{{ .Page.Title }}</span>
+                          <span class="bg-gray-200 dark:bg-darkmode-theme2 px-2 py-1 rounded text-sm">
+                            {{ len $items }}
+                          </span>
+                        </a>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+
+          <!-- Tags Widget -->
+          {{ if isset site.Taxonomies "tags" }}
+            {{ if not (eq (len site.Taxonomies.tags) 0) }}
+              <div class="mb-8">
+                <h5 class="text-xl font-bold mb-4">Tags</h5>
+                <div class="bg-light dark:bg-darkmode-light rounded-lg p-6">
+                  <div class="flex flex-wrap gap-2">
+                    {{ range $name, $items := site.Taxonomies.tags }}
+                      <a
+                        class="bg-white dark:bg-darkmode-body hover:bg-tum-blue hover:text-white dark:hover:bg-tum-blue px-3 py-1 rounded-full text-sm transition-colors {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `tags`) (eq $.Page.Title .Page.Title)) }}bg-tum-blue text-white{{ end }}"
+                        href="{{ .Page.RelPermalink }}">
+                        {{ .Page.Title }}
+                      </a>
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+
+          <!-- CTA Box -->
+          <div class="bg-tum-blue text-white rounded-lg p-6">
+            <h5 class="text-xl font-bold mb-3">Bleib informiert!</h5>
+            <p class="mb-4">
+              Folge uns auf Social Media für aktuelle Updates und Events.
+            </p>
+            <a 
+              href="https://instagram.com/fachschaft_bio" 
+              target="_blank"
+              class="btn bg-white text-tum-blue hover:bg-gray-100 w-full">
+              <i class="fa-brands fa-instagram mr-2"></i>
+              Folgen
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

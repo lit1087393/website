@@ -1,0 +1,152 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10 text-center">
+          <h1 class="hero-title">
+            Fachschaft Biowissenschaften
+          </h1>
+          <p class="hero-subtitle">
+            Wir vertreten die Studierenden der Biowissenschaften an der TUM in Freising 
+            und setzen uns für eure Interessen ein.
+          </p>
+          <a href="#about" class="btn btn-primary">
+            Mehr erfahren
+            <i class="fa fa-arrow-right pl-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Zahlen & Fakten -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <span class="stat-number">300+</span>
+          <span class="stat-label">Studierende</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Studiengänge</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">#1</span>
+          <span class="stat-label">Fachschaft in Freising<br>(nach Studierendenzahl)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was macht die Fachschaft? -->
+  <section class="content-section" id="about">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h2 class="section-title">Was macht die Fachschaft?</h2>
+          <div class="content">
+            <p>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
+              eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
+              voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet 
+              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studiengänge -->
+  <section class="content-section bg-gray-50 dark:bg-darkmode-theme2">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h2 class="section-title">Wir vertreten diese Bachelor- und Masterstudiengänge</h2>
+          <ul class="list-disc list-inside space-y-2 text-lg">
+            <li>Biologie (B.Sc.)</li>
+            <li>Molekulare Biotechnologie (B.Sc.)</li>
+            <li>Biologie (M.Sc.)</li>
+            <li>Molekulare Biotechnologie (M.Sc.)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mach mit! -->
+  <section class="content-section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <h2 class="section-title">Mach mit!</h2>
+          <div class="bg-light dark:bg-darkmode-light rounded-xl p-8">
+            <p class="text-xl mb-4">
+              <strong>Wann?</strong> Jeden 2. Donnerstag, 17-18:30 Uhr
+            </p>
+            <p class="text-xl mb-6">
+              <strong>Wo?</strong> Seminarraum 2
+            </p>
+            <a href="{{ `contact` | relLangURL }}" class="btn btn-primary">
+              Kontakt aufnehmen
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  {{ with site.GetPage "sections/faq" }}
+    {{ if .Params.enable }}
+      <section class="content-section bg-gray-50 dark:bg-darkmode-theme2">
+        <div class="container">
+          <div class="row justify-center">
+            <div class="lg:col-8">
+              <h2 class="section-title text-center mb-12">{{ .Title }}</h2>
+              {{ range .Params.faq_items }}
+                <div class="faq-item">
+                  <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    {{ .question }}
+                    <span class="text-2xl">+</span>
+                  </div>
+                  <div class="faq-answer" style="display: none;">
+                    {{ .answer | markdownify }}
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+          question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+              if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.display = 'none';
+              }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+              item.classList.remove('active');
+              answer.style.display = 'none';
+            } else {
+              item.classList.add('active');
+              answer.style.display = 'block';
+            }
+          });
+        });
+      </script>
+    {{ end }}
+  {{ end }}
+
+  <!-- Call to Action -->
+  {{ partial "call-to-action.html" . }}
+{{ end }}
