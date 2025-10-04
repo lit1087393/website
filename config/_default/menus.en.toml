@@ -72,12 +72,12 @@ weight = 3
 
 [[main]]
 name = "News"
-url = "/blog"
+url = "news"
 weight = 4
 
 [[main]]
 name = "Kontakt"
-url = "contact"
+url = "kontakt"
 weight = 5
 
 # footer menu

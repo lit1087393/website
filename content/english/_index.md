@@ -1,6 +1,67 @@
 ---
 # Banner
 banner:
+  title: "Fachschaft Biowissenschaften"
+  content: "Wir vertreten die Studierenden der Biowissenschaften an der TUM School of Life Sciences in Freising."
+  button:
+    enable: true
+    label: "Mehr erfahren"
+    link: "/fachschaft/fachschaftsarbeit"
+
+# Bildergalerie (NEU)
+gallery:
+  - "/images/gallery/bild1.jpg"
+  - "/images/gallery/bild1.jpg"
+  - "/images/gallery/bild1.jpg"
+
+# Studiengänge (NEU)
+studiengaenge:
+  - title: "Molekulare Biotechnologie"
+    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+    link: "/studiengaenge/molekulare-biotechnologie"
+  - title: "Life Sciences Biologie"
+    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+    link: "/studiengaenge/life-sciences-biologie"
+
+# Zahlen & Fakten (NEU)
+stats:
+  - number: "300+"
+    label: "Studierende"
+  - number: "4"
+    label: "Studiengänge"
+  - number: "#1"
+    label: "Fachschaft in Freising (nach Studierendenzahl)"
+
+# Features (BESTEHEND - kannst du behalten oder entfernen)
+features:
+  # - title: "Was macht die Fachschaft?"
+  #   image: "/images/service-1.png"
+  #   content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat..."
+  #   bulletpoints:
+  #     - "Vertretung der Studierenden"
+  #     - "Organisation von Events"
+  #     - "Beratung und Unterstützung"
+  #   button:
+  #     enable: false
+  #     label: ""
+  #     link: ""
+
+  - title: "Mach mit!"
+    image: "/images/service-2.png"
+    content: "Wann? Jeden 2. Donnerstag, 17-18:30 Uhr. Wo? Seminarraum 2"
+    bulletpoints:
+      - "Gestalte deine Fachschaft aktiv mit"
+      - "Lerne andere Studierende kennen"
+      - "Sammle wertvolle Erfahrungen"
+    button:
+      enable: true
+      label: "Mehr erfahren"
+      link: "/fachschaft/fachschaftsarbeit"
+---
+
+<!-- ---
+# Banner
+banner:
   title: "The Ultimate Starter Template You Need To Start Your Hugo Project"
   content: "Hugoplate is a free starter template built with Hugo and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time."
   image: "/images/banner.png"
@@ -50,4 +111,4 @@ features:
       enable: false
       label: ""
       link: ""
----
+--- -->
