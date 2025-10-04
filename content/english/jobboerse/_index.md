@@ -1,5 +1,7 @@
 ---
 title: "Jobbörse"
+meta_title: ""
+description: "This is meta description"
 description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
 layout: "jobboerse"
 

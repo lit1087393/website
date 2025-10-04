@@ -1,5 +1,5 @@
 <!-- JS Plugins + Main script -->
-{{ $scripts := slice }}
+ {{ $scripts := slice }}
 {{ $scriptsLazy := slice }}
 {{ range site.Params.plugins.js }}
   {{ if findRE "^http" .link }}

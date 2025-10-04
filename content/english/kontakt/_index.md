@@ -8,10 +8,10 @@ draft: false
 
 committees:
   - name: "Awareness-Team"
-    person: "Sarah Schmidt"
-    email: "awareness@fs-biowiss.tum.de"
-  - name: "Public Affairs / Instagram"
-    person: "Tom Weber"
+    person: "Niloufar Hosseini"
+    email: "awareness@tum.de"
+  - name: "Public Affairs"
+    person: "Max Mustermann"
     email: "social@fs-biowiss.tum.de"
   - name: "Erstsemesterbegrüßung"
     person: "Lisa Müller"
@@ -20,7 +20,7 @@ committees:
     person: "Jonas Klein"
     email: "lernmaterial@fs-biowiss.tum.de"
   - name: "Webseite"
-    person: "Niloufar Hosseini"
+    person: "Toplink Li"
     email: "webseite@fs-biowiss.tum.de"
 ---
 

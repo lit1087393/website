@@ -1,5 +1,7 @@
 ---
 title: "Awareness-Team"
+meta_title: ""
+description: "This is meta description"
 layout: "unterseite"
 show_faq: false
 show_related: true
