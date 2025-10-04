@@ -3,37 +3,90 @@
 # main menu
 [[main]]
 name = "Fachschaft"
-url = "/"
+hasChildren = true
 weight = 1
+
+[[main]]
+parent = "Fachschaft"
+name = "Mitmachen"
+url = "fachschaft/mitmachen"
+weight = 1
+
+[[main]]
+parent = "Fachschaft"
+name = "Awareness"
+url = "fachschaft/awareness"
+weight = 2
+
+[[main]]
+parent = "Fachschaft"
+name = "Webseite"
+url = "fachschaft/webseite"
+weight = 3
 
 [[main]]
 name = "Studium"
-url = "/about"
+hasChildren = true
 weight = 2
+
+[[main]]
+parent = "Studium"
+name = "Bewerbung"
+url = "studium/bewerbung"
+weight = 1
+
+[[main]]
+parent = "Studium"
+name = "Studienbeginn"
+url = "studium/studienbeginn"
+weight = 2
+
+[[main]]
+parent = "Studium"
+name = "Ansprechpartner"
+url = "studium/ansprechpartner"
+weight = 3
+
+[[main]]
+parent = "Studium"
+name = "Prüfungsrecht"
+url = "studium/pruefungsrecht"
+weight = 4
+
+[[main]]
+parent = "Studium"
+name = "Lernmaterialien"
+url = "studium/lernmaterialien"
+weight = 5
+
+[[main]]
+parent = "Studium"
+name = "Laborguide"
+url = "studium/laborguide"
+weight = 6
 
 [[main]]
 name = "Jobbörse"
-url = "/jobboerse"
+url = "jobboerse"
 weight = 3
 
 [[main]]
-name = "Kontakt"
-url = "/contact"
+name = "News"
+url = "/blog"
 weight = 4
 
+[[main]]
+name = "Kontakt"
+url = "contact"
+weight = 5
 
 # footer menu
 [[footer]]
-name = "About"
-url = "/about"
+name = "Impressum"
+url = "/impressum"
 weight = 1
 
 [[footer]]
-name = "Elements"
-url = "/elements"
+name = "Datenschutz"
+url = "/datenschutz"
 weight = 2
-
-[[footer]]
-name = "Privacy Policy"
-url = "/privacy-policy"
-weight = 3

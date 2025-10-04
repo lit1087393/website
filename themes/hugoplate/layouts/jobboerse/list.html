@@ -1,0 +1,62 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-8">
+        <h1>{{ .Title }}</h1>
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+
+      <!-- Job Listings -->
+      <div class="col-12">
+        <div class="row">
+          {{ range .Params.jobs }}
+          <div class="lg:col-6 mb-8">
+            <div class="bg-light  rounded-lg p-6 h-full flex flex-col">
+              <h3 class="mb-4">{{ .title }}</h3>
+              
+              <div class="mb-4 space-y-2 flex-grow">
+                <p class="text-sm">
+                  <strong>Stelle vom:</strong> {{ .date }}
+                </p>
+                <p class="text-sm">
+                  <strong>Auftraggeber:</strong> {{ .company }}
+                </p>
+                <p class="text-sm">
+                  <strong>Ort:</strong> {{ .location }}
+                </p>
+                <p class="text-sm">
+                  <strong>Bezahlt?:</strong> {{ if .paid }}Ja{{ else }}Nein{{ end }}
+                </p>
+                {{ if .tags }}
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {{ range .tags }}
+                  <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs">
+                    {{ . }}
+                  </span>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
+
+              {{ if .pdf }}
+              <a 
+                href="{{ .pdf | absURL }}" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary mt-auto">
+                mehr Infos
+                <i class="fa fa-external-link pl-2"></i>
+              </a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

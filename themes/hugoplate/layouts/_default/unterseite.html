@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <!-- Optional: Das könnte dich interessieren -->
+    {{ if .Params.show_related }}
+    <div class="related-content mt-8">
+      <h2>Das könnte dich auch interessieren:</h2>
+      <!-- Related pages logic -->
+    </div>
+    {{ end }}
+
+    <!-- Optional: FAQ -->
+    {{ if .Params.show_faq }}
+    <div class="faq-section mt-8">
+      <h2>FAQ</h2>
+      {{ range .Params.faq }}
+      <details class="faq-item">
+        <summary>{{ .question }}</summary>
+        <p>{{ .answer }}</p>
+      </details>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Ansprechpartner (variabel) -->
+    {{ if .Params.contacts }}
+    <div class="contacts-section mt-8">
+      <h2>{{ if .Params.contact_title }}{{ .Params.contact_title }}{{ else }}Ansprechpartner{{ end }}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-{{ len .Params.contacts }} gap-6">
+        {{ range .Params.contacts }}
+        <div class="contact-card">
+          <h3>{{ .name }}</h3>
+          <p>{{ .role }}</p>
+          <a href="mailto:{{ .email }}">{{ .email }}</a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Optional: Neugierig geworden -->
+    {{ if .Params.show_cta }}
+    <div class="cta-section mt-8">
+      <!-- CTA content -->
+    </div>
+    {{ end }}
+
+    <p class="text-sm text-gray-500 mt-8">Zuletzt aktualisiert: {{ .Lastmod.Format "02.01.2006" }}</p>
+  </div>
+</section>
+{{ end }}

@@ -1,1 +1,23 @@
 /* Add your own custom styles here */
+/* Gallery & Lightbox */
+.gallery-swiper {
+  padding: 20px 50px;
+}
+
+.gallery-image {
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Job Cards */
+.job-card-hover {
+  transition: all 0.3s ease;
+}
+
+.job-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}

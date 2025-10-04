@@ -2,11 +2,11 @@
 # The base URL of your site (required). This will be prepended to all relative URLs.
 baseURL = "/"
 # Title of your website (required).
-title = "Hugoplate"
+title = "Fachschaft Biowissenschaften TUM SoLS"
 # Your theme name
 theme = "hugoplate"
 # Default time zone for time stamps; use any valid tz database name: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
-timeZone = "America/New_York"
+timeZone = "Europe/Berlin"
 # post excerpt
 summaryLength = 10 # see https://gohugo.io/content-management/excerpts/
 # disable language
@@ -116,13 +116,9 @@ notAlternative = true
 ############################# Plugins ##############################
 
 # CSS Plugins
-[params.plugins]
-  [[params.plugins.css]]
-    link = "plugins/swiper/swiper-bundle.css"
-    lazy = false
-  [[params.plugins.css]]
-    link = "css/custom-fachschaft.css"
-    lazy = false
+[[params.plugins.css]]
+link = "plugins/swiper/swiper-bundle.css"
+lazy = true
 [[params.plugins.css]]
 link = "plugins/glightbox/glightbox.css"
 lazy = true
