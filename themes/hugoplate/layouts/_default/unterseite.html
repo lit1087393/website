@@ -1,57 +1,116 @@
 {{ define "main" }}
 <section class="section">
   <div class="container">
-    <h1>{{ .Title }}</h1>
-    
-    <div class="content">
+    <!-- Header mit Bild -->
+    <div class="row items-center mb-12">
+      <div class="{{ if .Params.image }}lg:col-7{{ else }}col-12{{ end }}">
+        <h1 class="mb-4">{{ .Title }}</h1>
+        {{ if .Params.subtitle }}
+        <h2 class="text-2xl text-gray-600 dark:text-gray-400 mb-4">{{ .Params.subtitle }}</h2>
+        {{ end }}
+      </div>
+      {{ with .Params.image }}
+      <div class="lg:col-5">
+        {{ partial "image" (dict "Src" . "Alt" $.Title "Class" "rounded-lg shadow-lg") }}
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Content im Blocksatz -->
+    <div class="prose max-w-none text-justify">
       {{ .Content }}
     </div>
 
-    <!-- Optional: Das könnte dich interessieren -->
-    {{ if .Params.show_related }}
-    <div class="related-content mt-8">
-      <h2>Das könnte dich auch interessieren:</h2>
-      <!-- Related pages logic -->
-    </div>
-    {{ end }}
-
-    <!-- Optional: FAQ -->
+    <!-- Optional: FAQ mit modernem Design -->
     {{ if .Params.show_faq }}
-    <div class="faq-section mt-8">
-      <h2>FAQ</h2>
-      {{ range .Params.faq }}
-      <details class="faq-item">
-        <summary>{{ .question }}</summary>
-        <p>{{ .answer }}</p>
-      </details>
-      {{ end }}
+    <div class="faq-section mt-12">
+      <h2 class="text-3xl font-bold mb-8">FAQ</h2>
+      <div class="space-y-3">
+        {{ range $index, $item := .Params.faq }}
+        <details class="faq-item group">
+          <summary class="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <span class="font-semibold">{{ .question }}</span>
+            <svg class="w-5 h-5 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="bg-white dark:bg-darkmode-dark p-4 mt-1 rounded-lg">
+            <p class="text-gray-700 dark:text-gray-300">{{ .answer }}</p>
+          </div>
+        </details>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
 
-    <!-- Ansprechpartner (variabel) -->
-    {{ if .Params.contacts }}
-    <div class="contacts-section mt-8">
-      <h2>{{ if .Params.contact_title }}{{ .Params.contact_title }}{{ else }}Ansprechpartner{{ end }}</h2>
-      <div class="grid grid-cols-1 md:grid-cols-{{ len .Params.contacts }} gap-6">
-        {{ range .Params.contacts }}
-        <div class="contact-card">
-          <h3>{{ .name }}</h3>
-          <p>{{ .role }}</p>
-          <a href="mailto:{{ .email }}">{{ .email }}</a>
+    <!-- Optional: Das könnte dich auch interessieren -->
+    {{ if .Params.show_related }}
+    <div class="related-content mt-12 bg-light dark:bg-darkmode-light p-8 rounded-lg">
+      <h2 class="text-3xl font-bold mb-8 text-center">Das könnte dich auch interessieren</h2>
+      <div class="row">
+        {{ $currentSection := .Section }}
+        {{ $relatedPages := where .Site.RegularPages "Section" $currentSection }}
+        {{ $relatedPages = where $relatedPages ".Permalink" "!=" .Permalink }}
+        {{ range first 3 $relatedPages }}
+        <div class="lg:col-4 md:col-6 mb-6">
+          <a href="{{ .Permalink }}" class="block group">
+            <div class="bg-white dark:bg-darkmode-dark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+              {{ if .Params.image }}
+                {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "w-full h-48 object-cover group-hover:scale-105 transition duration-300") }}
+              {{ else }}
+                {{ partial "image" (dict "Src" "/images/image-placeholder.png" "Alt" .Title "Class" "w-full h-48 object-cover group-hover:scale-105 transition duration-300") }}
+              {{ end }}
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2 group-hover:text-primary transition">{{ .Title }}</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">{{ .Summary | truncate 100 }}</p>
+              </div>
+            </div>
+          </a>
         </div>
         {{ end }}
       </div>
     </div>
     {{ end }}
 
-    <!-- Optional: Neugierig geworden -->
-    {{ if .Params.show_cta }}
-    <div class="cta-section mt-8">
-      <!-- CTA content -->
+    <!-- Ansprechpartner mit Bildern -->
+    {{ if .Params.contacts }}
+    <div class="contacts-section mt-12">
+      <h2 class="text-3xl font-bold mb-8">
+        {{ if .Params.contact_title }}{{ .Params.contact_title }}{{ else }}Ansprechpartner{{ end }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ len .Params.contacts }} gap-6">
+        {{ range .Params.contacts }}
+        <div class="contact-card bg-light dark:bg-darkmode-light p-6 rounded-lg text-center">
+          {{ if .image }}
+            {{ partial "image" (dict "Src" .image "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
+          {{ else }}
+            {{ partial "image" (dict "Src" "/images/avatar-sm.png" "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
+          {{ end }}
+          <h3 class="font-bold text-lg mb-1">{{ .name }}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">{{ .role }}</p>
+          <a href="mailto:{{ .email }}" class="btn btn-sm btn-outline-primary">
+            <i class="fa fa-envelope mr-2"></i>Kontakt
+          </a>
+        </div>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
 
-    <p class="text-sm text-gray-500 mt-8">Zuletzt aktualisiert: {{ .Lastmod.Format "02.01.2006" }}</p>
+    <!-- Optional: Neugierig geworden CTA -->
+    {{ if .Params.show_cta }}
+    <div class="cta-section mt-12 bg-gradient text-center p-12 rounded-lg">
+      <h2 class="text-3xl font-bold mb-4 text-white">Neugierig geworden?</h2>
+      <p class="text-white/90 mb-6 text-lg">{{ .Params.cta_text | default "Kontaktiere uns für weitere Informationen" }}</p>
+      <a href="{{ .Params.cta_link | default "/kontakt" }}" class="btn btn-primary">
+        {{ .Params.cta_button | default "Jetzt Kontakt aufnehmen" }}
+      </a>
+    </div>
+    {{ end }}
+
+    <p class="text-sm text-gray-500 mt-12 text-right">
+      Zuletzt aktualisiert: {{ .Lastmod.Format "02.01.2006" }}
+    </p>
   </div>
 </section>
 {{ end }}

@@ -30,7 +30,7 @@ stats:
   - number: "4"
     label: "Studiengänge"
   - number: "#1"
-    label: "Fachschaft in Freising (nach Studierendenzahl)"
+    label: "Fachschaft in Freising nach Studierendenzahl"
 
 # Features (BESTEHEND - kannst du behalten oder entfernen)
 features:

@@ -1,4 +1,5 @@
 /* Add your own custom styles here */
+
 /* Gallery & Lightbox */
 .gallery-swiper {
   padding: 20px 50px;
@@ -12,6 +13,22 @@
   transform: scale(1.05);
 }
 
+/* Galerie Pfeile schwarz */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #000 !important;
+}
+
+.dark .gallery-swiper .swiper-button-next,
+.dark .gallery-swiper .swiper-button-prev {
+  color: #fff !important;
+}
+
+/* Lightbox */
+#lightbox button {
+  cursor: pointer !important;
+}
+
 /* Job Cards */
 .job-card-hover {
   transition: all 0.3s ease;
@@ -20,4 +37,74 @@
 .job-card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Blocksatz für Content */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* FAQ Styles */
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] > div {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cursor Pointer für alle interaktiven Elemente */
+button, 
+.btn, 
+summary,
+[onclick],
+.cursor-pointer,
+a.btn {
+  cursor: pointer !important;
+}
+
+/* Related cards hover effect */
+.related-content a {
+  text-decoration: none;
+}
+
+/* Prose Container für rechtliche Seiten */
+.prose {
+  line-height: 1.8;
+}
+
+.prose h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
 }
