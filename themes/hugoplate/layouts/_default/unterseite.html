@@ -3,14 +3,14 @@
   <div class="container">
     <!-- Header mit Bild -->
     <div class="row items-center mb-12">
-      <div class="{{ if .Params.image }}lg:col-7{{ else }}col-12{{ end }}">
+      <div class="{{ if .Params.image }}lg:col-6{{ else }}col-12{{ end }}">
         <h1 class="mb-4">{{ .Title }}</h1>
         {{ if .Params.subtitle }}
         <h2 class="text-2xl text-gray-600 dark:text-gray-400 mb-4">{{ .Params.subtitle }}</h2>
         {{ end }}
       </div>
       {{ with .Params.image }}
-      <div class="lg:col-5">
+      <div class="lg:col-6">
         {{ partial "image" (dict "Src" . "Alt" $.Title "Class" "rounded-lg shadow-lg") }}
       </div>
       {{ end }}
@@ -21,7 +21,7 @@
       {{ .Content }}
     </div>
 
-    <!-- Optional: FAQ mit modernem Design -->
+    <!-- Optional: FAQ -->
     {{ if .Params.show_faq }}
     <div class="faq-section mt-12">
       <h2 class="text-3xl font-bold mb-8">FAQ</h2>
@@ -35,7 +35,9 @@
             </svg>
           </summary>
           <div class="bg-white dark:bg-darkmode-dark p-4 mt-1 rounded-lg">
-            <p class="text-gray-700 dark:text-gray-300">{{ .answer }}</p>
+            <div class="text-gray-700 dark:text-gray-300 prose prose-sm max-w-none dark:prose-invert">
+              {{ .answer | markdownify }}
+            </div>
           </div>
         </details>
         {{ end }}
@@ -43,7 +45,32 @@
     </div>
     {{ end }}
 
-    <!-- Optional: Das könnte dich auch interessieren -->
+    <!-- Ansprechpartner (JETZT ZUERST) -->
+    {{ if .Params.contacts }}
+    <div class="contacts-section mt-12">
+      <h2 class="text-3xl font-bold mb-8">
+        {{ if .Params.contact_title }}{{ .Params.contact_title }}{{ else }}Ansprechpartner{{ end }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ len .Params.contacts }} gap-6">
+        {{ range .Params.contacts }}
+        <div class="contact-card bg-light dark:bg-darkmode-light p-6 rounded-lg text-center">
+          {{ if .image }}
+            {{ partial "image" (dict "Src" .image "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
+          {{ else }}
+            {{ partial "image" (dict "Src" "/images/avatar-sm.png" "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
+          {{ end }}
+          <h3 class="font-bold text-lg mb-1">{{ .name }}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">{{ .role }}</p>
+          <a href="mailto:{{ .email }}" class="btn btn-sm btn-outline-primary">
+            <i class="fa fa-envelope mr-2"></i>Kontakt
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Optional: Das könnte dich auch interessieren (JETZT DANACH) -->
     {{ if .Params.show_related }}
     <div class="related-content mt-12 bg-light dark:bg-darkmode-light p-8 rounded-lg">
       <h2 class="text-3xl font-bold mb-8 text-center">Das könnte dich auch interessieren</h2>
@@ -62,34 +89,11 @@
               {{ end }}
               <div class="p-6">
                 <h3 class="font-bold text-xl mb-2 group-hover:text-primary transition">{{ .Title }}</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">{{ .Plain | truncate 100 }}</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  {{ .Plain | truncate 100 }}
+                </p>
               </div>
             </div>
-          </a>
-        </div>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-
-    <!-- Ansprechpartner mit Bildern -->
-    {{ if .Params.contacts }}
-    <div class="contacts-section mt-12">
-      <h2 class="text-3xl font-bold mb-8">
-        {{ if .Params.contact_title }}{{ .Params.contact_title }}{{ else }}Ansprechpartner{{ end }}
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ len .Params.contacts }} gap-6">
-        {{ range .Params.contacts }}
-        <div class="contact-card bg-light dark:bg-darkmode-light p-6 rounded-lg text-center">
-          {{ if .image }}
-            {{ partial "image" (dict "Src" .image "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
-          {{ else }}
-            {{ partial "image" (dict "Src" "/images/avatar-sm.png" "Alt" .name "Class" "w-24 h-24 rounded-full mx-auto mb-4 object-cover") }}
-          {{ end }}
-          <h3 class="font-bold text-lg mb-1">{{ .name }}</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">{{ .role }}</p>
-          <a href="mailto:{{ .email }}" class="btn btn-sm btn-outline-primary">
-            <i class="fa fa-envelope mr-2"></i>Kontakt
           </a>
         </div>
         {{ end }}

@@ -11,10 +11,11 @@
 
       <!-- Job Listings -->
       <div class="col-12">
+        {{ if .Params.jobs }}
         <div class="row">
           {{ range .Params.jobs }}
           <div class="lg:col-6 mb-8">
-            <div class="bg-light  rounded-lg p-6 h-full flex flex-col">
+            <div class="bg-light dark:bg-darkmode-light rounded-lg p-6 h-full flex flex-col">
               <h3 class="mb-4">{{ .title }}</h3>
               
               <div class="mb-4 space-y-2 flex-grow">
@@ -55,6 +56,25 @@
           </div>
           {{ end }}
         </div>
+        {{ else }}
+        <!-- Keine Stellen vorhanden -->
+        <div class="row justify-center">
+          <div class="lg:col-8">
+            <div class="bg-light dark:bg-darkmode-light rounded-lg p-12 text-center">
+              <i class="fa fa-briefcase text-6xl text-gray-400 mb-6"></i>
+              <h3 class="text-2xl mb-4">Aktuell keine Stellen vorhanden</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6">
+                Sobald neue Stellenangebote verfügbar sind, werden sie hier angezeigt.
+              </p>
+              <a 
+                href="mailto:{{ site.Params.jobboerse_email | default "jobs@fs-biowiss.tum.de" }}?subject=Stellenangebot einreichen&body=Hallo,%0D%0A%0D%0AIch möchte folgendes Stellenangebot einreichen:%0D%0A%0D%0APosition:%0D%0AUnternehmen:%0D%0AOrt:%0D%0ABezahlung:%0D%0ABeschreibung:%0D%0A%0D%0AMit freundlichen Grüßen" 
+                class="btn btn-primary">
+                <i class="fa fa-paper-plane mr-2"></i>Stellenangebot einreichen
+              </a>
+            </div>
+          </div>
+        </div>
+        {{ end }}
       </div>
     </div>
   </div>

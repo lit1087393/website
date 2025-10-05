@@ -6,7 +6,7 @@ banner:
   button:
     enable: true
     label: "Mehr erfahren"
-    link: "/fachschaft/fachschaftsarbeit"
+    link: "/fachschaft/mitmachen"
 
 # Bildergalerie (NEU)
 gallery:
@@ -17,10 +17,10 @@ gallery:
 # Studiengänge (NEU)
 studiengaenge:
   - title: "Molekulare Biotechnologie"
-    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+    content: "Interdisziplinäres Studium an der Schnittstelle von Chemie, Biologie und Ingenieurswesen zur biotechnologischen Konstruktion von Biomolekülen und Zellen"
     link: "/studiengaenge/molekulare-biotechnologie"
   - title: "Life Sciences Biologie"
-    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt..."
+    content: "Breites, forschungsorientiertes Biologiestudium über die komplexen biologischen Zusammenhänge aller Lebensprozesse von molekularer Ebene bis zur Ökologie"
     link: "/studiengaenge/life-sciences-biologie"
 
 # Zahlen & Fakten (NEU)
@@ -47,16 +47,18 @@ features:
   #     link: ""
 
   - title: "Mach mit!"
-    image: "/images/service-2.png"
-    content: "Wann? Jeden 2. Donnerstag, 17-18:30 Uhr. Wo? Seminarraum 2"
+    image: "/images/neu/20251005_ErstituetenPacken.jpg"
+    content: |
+      Wann?: Jeden 2. Donnerstag, 17-18:30 Uhr  
+      Wo?: Seminarraum 2  
     bulletpoints:
-      - "Gestalte deine Fachschaft aktiv mit"
+      - "Gestalte deine Studium aktiv mit"
       - "Lerne andere Studierende kennen"
       - "Sammle wertvolle Erfahrungen"
     button:
       enable: true
       label: "Mehr erfahren"
-      link: "/fachschaft/fachschaftsarbeit"
+      link: "/fachschaft/mitmachen"
 ---
 
 <!-- ---

@@ -57,7 +57,7 @@ show_categories = true
 [announcement]
 enable = true
 expire_days = 7
-content = "Die Webseite ist derzeit noch im Umbau. Bitte überprüfe Inhalte auf ihre Richtigkeit. Wir freuen uns auf dein Feedback!"
+content = "Die Webseite ist derzeit noch im Umbau. Bitte überprüfe Inhalte auf ihre Richtigkeit. Wir freuen über dein Feedback!"
 
 # seo meta data for OpenGraph / Twitter Card
 # seo module: https://github.com/gethugothemes/hugo-modules/tree/master/seo-tools/basic-seo
@@ -110,3 +110,7 @@ enable = false
 # mailchimp subsciption
 mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
 mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074"
+
+
+# Jobbörse E-Mail
+jobboerse_email = "biowiss.fs@ls.tum.de"
